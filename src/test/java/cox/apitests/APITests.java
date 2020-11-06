@@ -52,6 +52,7 @@ public class APITests extends TestBase {
         int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
         Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE_200, "Status code was not 200");
         String responseString = EntityUtils.toString(closeableHttpResponse.getEntity(), "UTF-8");
+        //I should have db access to query the same datasetId to get Expected Result
         String expectedResult = "{\n" +
                 "  \"vehicleIds\": [\n" +
                 "    0\n" +
@@ -75,11 +76,12 @@ public class APITests extends TestBase {
         int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
         Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE_200, "Status code was not 200");
         String responseString = EntityUtils.toString(closeableHttpResponse.getEntity(), "UTF-8");
+        //I should have db access to query the same datasetId and vehicleId to get Expected Result
         String expectedResult = "{\n" +
                 "  \"vehicleId\": 10,\n" +
                 "  \"year\": 0,\n" +
-                "  \"make\": \"string\",\n" +
-                "  \"model\": \"string\",\n" +
+                "  \"make\": \"honda\",\n" +
+                "  \"model\": \"civic\",\n" +
                 "  \"dealerId\": 0\n" +
                 "}";
         Assert.assertEquals(responseString, expectedResult, "The response body wa not the same, ");
